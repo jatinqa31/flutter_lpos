@@ -1,9 +1,14 @@
 workflows:
-
-  sample-workflow:
-
-    name: Codemagic Sample Workflow
-
-    max_build_duration: 120
-
-    instance_type: mac_mini_m2
+  ios-workflow:
+    name: iOS Workflow
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - flutter clean
+      - flutter pub get
+      - cd ios && rm -rf Pods Podfile.lock .symlinks
+      - cd ios && pod install --repo-update
+      - flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/iphoneos/*.app
