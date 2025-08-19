@@ -60,5 +60,16 @@
 	<string>This app requires access to your location to provide location-based services.</string>
 	<key>io.flutter.embedded_views_preview</key>
 	<true/>
+
+	<key>io.flutter.embedded_views_preview</key>
+    <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSAllowsArbitraryLoadsInWebContent</key>
+        <true/>
+    </dict>
+
 </dict>
 </plist>
